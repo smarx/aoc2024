@@ -2,7 +2,20 @@ const std = @import("std");
 const input = @embedFile("input.txt");
 
 pub fn part1(rows: *std.ArrayList(std.ArrayList(u8))) !void {
-    const directions = [8][2]i8{ [2]i8{ 1, 1 }, [2]i8{ -1, -1 }, [2]i8{ 1, -1 }, [2]i8{ -1, 1 }, [2]i8{ 0, 1 }, [2]i8{ 0, -1 }, [2]i8{ 1, 0 }, [2]i8{ -1, 0 } };
+    const directions = comptime blk: {
+        var arr: [8][2]i8 = undefined;
+        var i: usize = 0;
+        for ([_]i8{ -1, 0, 1 }) |x| {
+            for ([_]i8{ -1, 0, 1 }) |y| {
+                if (x == 0 and y == 0) {
+                    continue;
+                }
+                arr[i] = [2]i8{ x, y };
+                i += 1;
+            }
+        }
+        break :blk arr;
+    };
 
     const target = "XMAS";
 
