@@ -1,5 +1,5 @@
 const std = @import("std");
-const input = @embedFile("data.txt");
+const input = @embedFile("input.txt");
 
 pub fn part1(as: *std.ArrayList(i32), bs: *std.ArrayList(i32)) !void {
     std.mem.sort(i32, as.items, {}, std.sort.asc(i32));

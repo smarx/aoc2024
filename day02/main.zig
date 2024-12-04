@@ -1,5 +1,5 @@
 const std = @import("std");
-const input = @embedFile("data.txt");
+const input = @embedFile("input.txt");
 
 pub fn isSafe(readings: []i32) bool {
     const ascending = readings[1] > readings[0];

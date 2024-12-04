@@ -1,5 +1,5 @@
 const std = @import("std");
-const input = @embedFile("data.txt");
+const input = @embedFile("input.txt");
 
 const Parser = struct {
     const ParseError = error{
