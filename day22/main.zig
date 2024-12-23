@@ -3,14 +3,11 @@ const input = @embedFile("input.txt");
 
 fn getNext(p: u64) u64 {
     var n = p;
-    n = (n << 6) ^ n;
-    n %= 16777216;
+    n = ((n << 6) ^ n) & 16777215;
 
     n = (n >> 5) ^ n;
-    n %= 16777216;
 
-    n = (n << 11) ^ n;
-    n %= 16777216;
+    n = ((n << 11) ^ n) & 16777215;
 
     return n;
 }
